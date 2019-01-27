@@ -1,33 +1,42 @@
 const Card = (props) => {
- return(
-  <div>
-   <img width="75" src={props.avatar_url}/>
-   <div style={{display: 'inline-block', marginLeft: 10}}>
-    <div style={{fontSize: '1.25em', fornWeight: 'bold'}}>
-      {props.name}
+  return (
+    <div>
+      <img width="75" src={props.avatar_url} />
+      // This is JavaScript
+      <div style={{ display: 'inline-block', marginLeft: 10 }}>
+        <div style={{ fontSize: '1.25em', fontWeight: 'bold' }}>
+          {props.name}
+        </div>
+        <div>{props.company}</div>
+      </div>
     </div>
-     <div>{props.company}</div>
-    </div>
-  </div>
- );
+  );
 };
 
 // Array of objects
-// let data = {
-//  { name="Paul"
-//    avatar_url="https://avatars.githubusercontent.com/u/8445?v=3"
-//    company="Facebook" },
-// }
+let data = [
+  {
+    name: "Paul",
+    avatar_url: "https://avatars.githubusercontent.com/u/8445?v=3",
+    company: "Facebook"
+  },
+  {
+    name: "Ben",
+    avatar_url: "https://avatars.githubusercontent.com/u/6820?v=3",
+    company: "Facebook"
+  },
+]
 
 const CardList = (props) => {
-  return(
-  <div>
-   <Card name="Paul"
-         avatar_url="https://avatars.githubusercontent.com/u/8445?v=3"
-         company="Facebook"/>
-  </div>
- );
+  return (
+    <div>
+      // React supports "spread coperator" - makes all the properties of Card object available as props in the 			Card
+      {props.cards.map(card => <Card {...card} />)}
+    </div>
+  );
 };
 
-ReactDOM.render(<CardList />, mountNode);
+ReactDOM.render(<CardList cards={data} />, mountNode);
+
+
 
