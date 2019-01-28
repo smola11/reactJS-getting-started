@@ -16,8 +16,8 @@ const Card = (props) => {
 const CardList = (props) => {
   return (
     <div>
-      // React supports "spread operator" - makes all the properties of Card object available as props in the 			Card
-      {props.cards.map(card => <Card key={card.it} {...card} />)}
+      // React supports "spread operator" - makes all the properties of Card object available as props in the Card
+      {props.cards.map(card => <Card key={card.id} {...card} />)}
     </div>
   );
 };
